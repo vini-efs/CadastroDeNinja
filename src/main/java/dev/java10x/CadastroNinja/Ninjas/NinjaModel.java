@@ -1,13 +1,16 @@
-package dev.java10x.CadastroNinja;
+package dev.java10x.CadastroNinja.Ninjas;
 
+import dev.java10x.CadastroNinja.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 /*
 * Entity transforma uma classe em uma entidade no Banco de Dados
 * Table cria uma tabela no meu BD dessa classe
 * */
 @Entity
-@Table(name = "tb_cadastro_de_ninjas")
+@Table(name = "tb_cadastro")
 public class NinjaModel {
 
     @Id
@@ -16,6 +19,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    // ManyToOne: Relacionamento entre tabelas: Nesse caso N -> 1
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Chave Estrangeira
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
