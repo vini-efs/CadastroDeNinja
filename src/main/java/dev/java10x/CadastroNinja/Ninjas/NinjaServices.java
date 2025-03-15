@@ -1,5 +1,6 @@
 package dev.java10x.CadastroNinja.Ninjas;
 
+import dev.java10x.CadastroNinja.Missoes.MissoesModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,4 +24,9 @@ public class NinjaServices {
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.orElse(null);
     }
+
+    public NinjaModel criarNinja(NinjaModel ninja) {
+        return ninjaRepository.save(ninja);
+    }
+
 }
